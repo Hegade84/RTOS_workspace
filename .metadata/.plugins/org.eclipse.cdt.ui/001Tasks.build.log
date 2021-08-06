@@ -1,0 +1,24 @@
+17:00:25 **** Incremental Build of configuration Debug for project 001Tasks ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I"D:/Coding/RTOS/RTOS_workspace/001Tasks/ThirdParty/FreeRTOS" -I"D:/Coding/RTOS/RTOS_workspace/001Tasks/ThirdParty/FreeRTOS/include" -I"D:/Coding/RTOS/RTOS_workspace/001Tasks/ThirdParty/FreeRTOS/portable/GCC/ARM_CM7" -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"D:/Coding/RTOS/RTOS_workspace/001Tasks/ThirdParty/FreeRTOS/portable/GCC/ARM_CM7/r0p1" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:76:13: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+   76 |  BaseType_t status;
+      |             ^~~~~~
+arm-none-eabi-gcc -o "001Tasks.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\Coding\RTOS\RTOS_workspace\001Tasks\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001Tasks.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001Tasks.elf
+ 
+arm-none-eabi-size   001Tasks.elf 
+arm-none-eabi-objdump -h -S  001Tasks.elf  > "001Tasks.list"
+arm-none-eabi-objcopy  -O binary  001Tasks.elf  "001Tasks.bin"
+   text	   data	    bss	    dec	    hex	filename
+  17932	    128	  49192	  67252	  106b4	001Tasks.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001Tasks.bin
+ 
+Finished building: 001Tasks.list
+ 
+
+17:00:26 Build Finished. 0 errors, 1 warnings. (took 727ms)
+
